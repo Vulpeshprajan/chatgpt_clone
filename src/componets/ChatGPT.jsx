@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Row, Button } from "react-bootstrap";
 import axios from "axios";
 export default function ChatGPT() {
   const [prompt, setPrompt] = useState("");
@@ -26,31 +27,35 @@ export default function ChatGPT() {
   };
 
   return (
-    <div className="container container-sm p-1">
-      {" "}
-      <h1 className="title text-center text-darkGreen">ChatGPT App</h1>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <a href="">😁</a>
-          <label htmlFor="">Chatbot</label>
-          <input
-            className="shadow-sm"
-            type="text"
-            placeholder="Enter text"
-            value={prompt}
-            onChange={handlePrompt}
-          />
-          <button className="btn btn-accept w-100" type="submit">
-            {" "}
-            Search 🔎
-          </button>
-        </div>{" "}
-      </form>
-      <div className="bg-darkGreen  mt-2 p-1 border-5">
-        <p className="text-light">
-          {response ? response : "Hi I am your chatbot what can I do for you?"}
-        </p>
+    <Row>
+      <div className="container container-sm p-1">
+        {" "}
+        <h1 className="title text-center text-darkGreen">ChatGPT App</h1>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <a href="">😁</a>
+            <label htmlFor="">Chatbot</label>
+            <input
+              className="shadow-sm"
+              type="text"
+              placeholder="Search Anything"
+              value={prompt}
+              onChange={handlePrompt}
+            />
+            <Button className="btn btn-accept w-100" type="submit">
+              {" "}
+              Search 🔎
+            </Button>
+          </div>{" "}
+        </form>
+        <div className="bg-darkGreen  mt-2 p-1 border-5">
+          <p className="text-light">
+            {response
+              ? response
+              : "Hi I am your chatbot what can I do for you?"}
+          </p>
+        </div>
       </div>
-    </div>
+    </Row>
   );
 }
